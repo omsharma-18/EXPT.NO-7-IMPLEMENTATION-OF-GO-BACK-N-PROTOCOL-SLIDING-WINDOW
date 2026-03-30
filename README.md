@@ -1,4 +1,5 @@
-# EXPT.NO-8-IMPLEMENTATION-OF-GO-BACK-N-PROTOCOL-SLIDING-WINDOW
+
+# EXPT.NO-7-IMPLEMENTATION-OF-GO-BACK-N-PROTOCOL-SLIDING-WINDOW
 # AIM
 To write and execute a program for Go-Back-N protocol.
 # EQUIPMENTS REQUIRED
@@ -13,39 +14,50 @@ Personal Computer Turbo C Compiler
 7.	Choose the file and verify the go back protocol operation.
 
 # PROGRAM
-
-#include <stdio.h>
-/* Assume 7 frames of data are to sent using GO BACK N ARQW*/ #define window_size 4
+```C
+#include<stdio.h>
 void main()
 {
-int i,window_start = 1,ack; int n;
-printf("SLIDIDNG WINDOW PROTOCOL\n");
-char frame[n+1][10]; scanf("%d",&n);
-printf("GO BACK N ARQ\n"); printf("Enter the no of frames:%d\n",n); for(i=1;i<=n;i++)
-{
-printf("Content for frame %d :",i); scanf("%s",frame[i]);
-}
-while(window_start<=n)
-{
-printf("\nSending frames:\n"); scanf("%d",&ack);
-printf("Enter frame number with no acks :%d",ack); if(ack == 0)
-{
-printf("Enter frame number with no ACK forward\n"); window_start += window_size;
- 
-}
-else
-{
-printf("No Acknowlegement for frame %d... \n",ack); printf("Resending frames starting from frame %d\n",ack); window_start = ack;
-}
-}
-printf("\n All frames sent successfully.\n");
-}
 
+int i,j,n;
+printf("GO BACK N ARQ\n");
+//printf("Entermessage in format\n");
+printf("Enter number of frame : ");
+scanf("%d",&n);
+char frame[n][10];
+
+for(i=1;i<=n;i++)
+{
+printf("Content for frame %d :",i);
+scanf("%s",&frame[i]);
+}
+int s=1;
+//while(j<=n){
+printf("Enter frame number with no ACK :");
+scanf("%d",&j);
+for(i=1;i<=n;i++)
+{
+if(i!=j)
+printf("\n Sending frame %d \n FRAME ACKNOWLEDGED. .... \n",i);
+//else
+//printf("\n Frame not Acknowledeged. ....... \n");
+}
+if(j<=n)
+{
+printf("No Acknowlegement for frame %d... \n",j);
+printf("Resending... Content from frame %d :%s\n\n",j,frame[j]);
+
+}
+printf("\n Sending frame %d \n FRAME ACKNOWLEDGED. .... \n",j);
+//}
+
+printf("\n\nALL FRAME RECIEVED SUCCESSFULLY\n\n");
+}
+```
 # OUTPUT
 
- 
+<img width="1021" height="845" alt="image" src="https://github.com/user-attachments/assets/aa471b4d-4850-49b8-9fdc-cc449b3d1c83" />
 
+# RESULT 
 
-
-
-# RESULT: Thus the Go-Back-N protocol-Sliding Window was implemented and the output is verified successfully.
+Thus the Go-Back-N protocol-Sliding Window was implemented and the output is verified successfully.
